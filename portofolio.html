@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portofolio</title>
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Color Palette */
+        :root {
+            --copper-gold: #B99470;
+            --olive-green: #A9B388;
+            --ivory: #FEFAE0;
+            --light-gray: #D3D3D3;
+            --text-dark: #2e2e2e;
+            --text-light: #ffffff;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--ivory);
+            color: var(--text-dark);
+            margin-left: 250px;
+            scroll-behavior: smooth;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--light-gray);
+            color: var(--text-dark);
+            padding: 20px 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        nav .navbar-brand {
+            text-align: center;
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+        nav .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav .nav-link:hover {
+            background-color: var(--olive-green);
+            color: var(--text-light);
+        }
+        header {
+            background-color: var(--copper-gold);
+            color: var(--text-light);
+            padding: 50px 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 4rem;
+            font-weight: 600;
+        }
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        section {
+            padding: 60px 50px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #skills, #Portofolio, #contact, #passion, #pengalaman {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            text-align: center;
+        }
+        #skills i {
+            color: var(--copper-gold);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        #skills i:hover {
+            transform: scale(1.3);
+            color: var(--ivory);
+        }
+        #Portofolio .card {
+        position: relative;
+        overflow: hidden;
+        border: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 300px;
+    }
+    #Portofolio .card:hover {
+        transform: translateY(-10px) scale(1.03); /* Efek naik dan perbesar sedikit */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Bayangan lebih dramatis */
+    }
+    #Portofolio .card img {
+        transition: transform 0.5s ease;
+    }
+    #Portofolio .card:hover img {
+        transform: scale(1.2); /* Perbesar gambar saat hover */
+    }
+    #Portofolio .card-body {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.7); /* Latar belakang gelap transparan */
+        color: var(--text-light);
+        transform: translateY(100%); /* Sembunyikan awalnya */
+        transition: transform 0.5s ease;
+    }
+    #Portofolio .card:hover .card-body {
+        transform: translateY(0); /* Tampilkan deskripsi saat hover */
+    }
+    #Portofolio .card-title {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    #Portofolio .card p {
+        font-size: 0.9rem;
+    }
+        #contact input, #contact textarea {
+            border-radius: 5px;
+            border: 2px solid var(--copper-gold);
+            margin-bottom: 15px;
+            padding: 15px;
+            width: 100%;
+            max-width: 500px;
+        }
+        #contact input:focus, #contact textarea:focus {
+            outline: none;
+            border-color: var(--olive-green);
+        }
+        #contact button {
+            background-color: var(--copper-gold);
+            color: var(--text-light);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        #contact button:hover {
+            background-color: var(--olive-green);
+            transform: scale(1.1);
+            color: var(--text-light);
+        }
+        footer {
+            background-color: var(--copper-gold);
+            color: var(--text-light);
+            padding: 20px 50px;
+            text-align: center;
+        }
+        /* Passion Section */
+        #passion i {
+            color: var(--copper-gold);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        #passion i:hover {
+            transform: scale(1.3);
+            color: var(--ivory);
+        }
+        #pengalaman ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #pengalaman li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navbar -->
+    <nav>
+        <a class="navbar-brand" href="#">Lara's Page</a>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#passion">Passion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#Portofolio">Portofolio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#pengalaman">Experience</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div>
+            <h1>Welcome to Lara's Page</h1>
+            <p>Discover my skills, projects, and get in touch.</p>
+        </div>
+    </header>
+
+    <!-- About Me -->
+    <section id="about" class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center">
+                <img src="img/foto.jpg" alt="Your Photo" class="rounded-circle img-fluid shadow" style="width: 200px; height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+                <h2>About Me</h2>
+                <p>Hello! I'm Lara, a student of the Informatics Department at the Faculty of Information Technology, Universitas Andalas, class of 2023. I am currently pursuing my degree with student ID 2311531002. I have a passion for technology, especially in the areas of web development and design. I specialize in creating interactive websites, managing databases, and designing user-friendly interfaces. Let's create something amazing together!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div>
+            <i class="fas fa-code fa-3x"></i>
+            <h4 class="mt-2">Web Development</h4>
+        </div>
+        <div>
+            <i class="fas fa-database fa-3x"></i>
+            <h4 class="mt-2">Database Management</h4>
+        </div>
+        <div>
+            <i class="fas fa-paint-brush fa-3x"></i>
+            <h4 class="mt-2">Graphic Design</h4>
+        </div>
+    </section>
+
+    <!-- Passion (Menggambar dan Menyanyi) -->
+    <section id="passion">
+        <h2>My Passion</h2>
+        <div>
+            <i class="fas fa-paint-brush fa-3x"></i>
+            <h4 class="mt-2">Drawing</h4>
+        </div>
+        <div>
+            <i class="fas fa-music fa-3x"></i>
+            <h4 class="mt-2">Singing</h4>
+        </div>
+    </section>
+
+    <!-- Portofolio -->
+    <section id="Portofolio">
+        <h2>Portofolio</h2>
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body p-0">
+                        <img src="" id="modalImage" class="img-fluid" alt="Full Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="img/port1.jpg" class="card-img-top" alt="Project 1" 
+                         data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 1</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="img/port2.jpg" class="card-img-top" alt="Project 2" 
+                         data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 2</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="img/port3.jpg" class="card-img-top" alt="Project 3" 
+                         data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 3</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="img/port4.jpg" class="card-img-top" alt="Project 4" 
+                         data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 4</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="img/port5.jpg" class="card-img-top" alt="Project 5" 
+                         data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 5</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="img/port6.jpg" class="card-img-top" alt="Project 6" 
+                         data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 6</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function showImage(element) {
+                const imageUrl = element.src; // Ambil URL gambar dari elemen yang diklik
+                const modalImage = document.getElementById('modalImage'); // Temukan elemen gambar dalam modal
+                modalImage.src = imageUrl; // Atur sumber gambar modal
+            }
+        </script>
+        
+    </section>
+    
+
+    <!-- Pengalaman -->
+    <section id="pengalaman">
+        <h2>Experience</h2>
+        <ul>
+            <li>Secretary of TPQ/TPSQ Almubarak</li>
+            <li>Art Expert Staff of the Student Executive Body Dormitory, MTsN Padang Panjang</li>
+            <li>Member of Commission C, MPK SMA Negeri 2 Payakumbuh</li>
+            <li>Member of the Payakumbuh City OSIS Forum</li>
+            <li>Member of the Public Relations Division, TechnoSport FTI</li>
+            <li>Sponsorship Division Staff, CUF 2024</li>
+            <li>Sinergi Muda Batch 1 Secretary, BEM KM FTI 2024</li>
+            <li>Member of the Event Division, TechnoSmart FTI</li>
+            <li>Secretary Staff, BEM KM FTI</li>
+            <li>Secretary Staff, LKMM-TD FTI 2024</li>
+            <li>Secretary-Treasurer, Informaticup 2024</li>
+            <li>Sponsorship Coordinator, CUF 2025</li>
+            <li>Secretary-Treasurer, IF Gathering 2024</li>
+            <li>General Treasurer, HMIF 2024/2025</li>
+            <li>Staff of the Public Relations Division, Festika 2025</li>
+            <li>Secretary-Treasurer, PPU FTI 2024</li>
+        </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="email" placeholder="Your Email"><br>
+            <textarea placeholder="Your Message"></textarea><br>
+            <button class="btn btn-custom">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Lara. Built with love and Bootstrap 5.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
